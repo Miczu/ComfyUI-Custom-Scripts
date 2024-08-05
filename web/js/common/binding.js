@@ -187,7 +187,9 @@ app.registerExtension({
 				const r = onAdded?.apply(this, arguments);
 
 				for (const widget of this.widgets || []) {
-					const bindings = inputs[widget.name][1]?.["pysssss.binding"];
+					const widgedInput = inputs[widget.name];
+					if(!widgedInput) continue;
+					const bindings = widgedInput[1]?.["pysssss.binding"];
 					if (!bindings) continue;
 
 					for (const binding of bindings) {
